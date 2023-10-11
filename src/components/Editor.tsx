@@ -6,12 +6,45 @@ import { MentionsInput, Mention } from "react-mentions";
 interface Props {
   clientId: string;
 }
+
+// generate a unique id of 10 characters for each note
+// using only numbers and letters
+function generateId() {
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  for (let i = 0; i < 10; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
+function getNotesData() {
+  const store = JSON.parse(localStorage.getItem("notes") || "{}");
+  const notes = Object.keys(store).map((key) => {
+    return {
+      id: key,
+      display: store[key].title,
+    };
+  });
+  return notes;
+}
+
 export function Editor(props: Props) {
   const { clientId } = props;
   const [text, setText] = useState<string>("");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [title, setTitle] = useState("");
   return (
     <div>
+      Title
+      <input
+        style={{ marginLeft: "10px", marginBottom: "40px" }}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />{" "}
+      <div>Content</div>
       <MentionsInput
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -26,10 +59,7 @@ export function Editor(props: Props) {
         <Mention
           style={{ color: "lightblue" }}
           trigger="@"
-          data={[
-            { id: "somthing", display: "hello" },
-            { id: "some", display: "sometoo" },
-          ]}
+          data={getNotesData()}
           renderSuggestion={(suggestion) => (
             <div style={{ border: "1px solid black" }}>
               {suggestion.display}
@@ -52,6 +82,16 @@ export function Editor(props: Props) {
 
           const timeStamp = `${currentHour}:${currentMinute}:${currentSecond}`;
 
+          const noteMap = JSON.parse(localStorage.getItem("notes") || "{}");
+
+          const uniqueId = generateId();
+
+          noteMap[uniqueId] = {
+            title,
+            associatedClient: clientId,
+            content: text,
+          };
+          localStorage.setItem("notes", JSON.stringify(noteMap));
           if (currentValue === undefined || currentValue === null) {
             localStorage.setItem(
               clientId,
