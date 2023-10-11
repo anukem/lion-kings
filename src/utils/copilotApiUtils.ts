@@ -1,4 +1,4 @@
-const BaseApiURL = 'https://api-beta.copilot.com/v1'
+const BaseApiURL = 'https://api.copilot-staging.com/v1'
 
 type MeResponse = {
     givenName: string
@@ -48,6 +48,10 @@ export class CopilotAPI {
 
     async getClient(clientId: string) {
         return this.getApiData<Client>(`clients/${clientId}`)
+    }
+
+    async getAllClients()  {
+        return this.getApiData<{data: Client[]}>(`clients`)
     }
 
     async getCompany(companyId: string) {
