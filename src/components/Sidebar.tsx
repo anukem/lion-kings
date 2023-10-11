@@ -16,10 +16,13 @@ export function valueParser(value: string) {
         <button
           style={{ color: "lightblue" }}
           key={itemId}
-          onClick={() =>
-            (window.location.href =
-              window.location.pathname + `?noteId=${itemId}`)
-          }
+          onClick={() => {
+            if (window.location.href.includes("?")) {
+              window.location.href += `&noteId=${itemId}`;
+              return;
+            }
+            window.location.href = window.location.href + `?noteId=${itemId}`;
+          }}
         >
           {noteMap[itemId].title}
         </button>

@@ -1,6 +1,7 @@
 import { Clients } from "@/components/Clients";
 import { Editor } from "@/components/Editor";
 import { NotePage } from "@/components/NotePage";
+import { Notes } from "@/components/Notes";
 import { Sidebar } from "@/components/Sidebar";
 import { Client, Company, CopilotAPI } from "@/utils/copilotApiUtils";
 import Image from "next/image";
@@ -44,6 +45,10 @@ export default async function Page({
   const { data: clients } = await getAllClients();
   const selectedUserId = searchParams.clientId;
 
+  if (Array.isArray(searchParams.noteId)) {
+    return <Notes noteIds={searchParams.noteId} />;
+  }
+
   const selectedNote = searchParams.noteId;
 
   return (
@@ -74,7 +79,6 @@ export default async function Page({
               <div
                 style={{
                   marginTop: "300px",
-                  width: "200px",
                   display: "inline-block",
                   marginLeft: "200px",
                 }}
