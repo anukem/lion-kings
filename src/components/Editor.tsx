@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { MentionsInput, Mention } from "react-mentions";
 
 interface Props {
   clientId: string;
@@ -8,13 +9,34 @@ interface Props {
 export function Editor(props: Props) {
   const { clientId } = props;
   const [text, setText] = useState<string>("");
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
   return (
     <div>
-      <textarea
-        onChange={(e) => setText(e.target.value)}
+      <MentionsInput
         value={text}
-        style={{ height: "300px", width: "400px" }}
-      />
+        onChange={(e) => setText(e.target.value)}
+        style={{
+          display: "block",
+          height: "300px",
+          width: "400px",
+          outline: "none",
+          background: "white",
+        }}
+      >
+        <Mention
+          style={{ color: "lightblue" }}
+          trigger="@"
+          data={[
+            { id: "somthing", display: "hello" },
+            { id: "some", display: "sometoo" },
+          ]}
+          renderSuggestion={(suggestion) => (
+            <div style={{ border: "1px solid black" }}>
+              {suggestion.display}
+            </div>
+          )}
+        />
+      </MentionsInput>
       <button
         style={{ display: "block" }}
         onClick={() => {
