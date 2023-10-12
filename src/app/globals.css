@@ -16,6 +16,24 @@
   }
 }
 
+.note-page-content {
+
+  color: var(--Dark-Font, #212B36);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 200%;
+}
+
+.note-page-title {
+  color: var(--font-black-headings, var(--Dark-Font, #212B36));
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+}
+
 :root {
   --admin-auth-shadow: 0px 0px 144px 0px rgba(227, 255, 238, 0.4);
   --borderradius-p-border-radius-100: 4px;
