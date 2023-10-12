@@ -7,7 +7,7 @@ interface Props {
 }
 
 export function valueParser(value: string) {
-  const rgx = /@\[[a-zA-Z0-9\s]+\]\(([a-zA-Z0-9\s]+)\)/g;
+  const rgx = /@\[[a-zA-Z0-9\s\W]+\]\(([a-zA-Z0-9\s]+)\)/g;
   const elements = value.split(rgx);
   const noteMap = JSON.parse(localStorage.getItem("notes") || "{}");
   return elements.map((itemId) => {
