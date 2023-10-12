@@ -17,10 +17,13 @@ export function Clients(props: Props) {
         const isSelected =
           Boolean(selectedUserId) && selectedUserId === client.id;
         return (
+          <div key={client.id}>
           <button
             style={{
               display: "block",
               fontWeight: isSelected ? "bold" : "",
+              fontFamily: "Inter",
+              padding: '0.5em',
             }}
             key={client.familyName}
             onClick={() => {
@@ -30,6 +33,7 @@ export function Clients(props: Props) {
           >
             {`${client.givenName} ${client.familyName}`}
           </button>
+          </div>
         );
       })}
     </div>
