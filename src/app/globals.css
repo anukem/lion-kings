@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -16,12 +10,229 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --admin-auth-shadow: 0px 0px 144px 0px rgba(227, 255, 238, 0.4);
+  --borderradius-p-border-radius-100: 4px;
+  --legacybackdropmodal: rgba(15, 15, 15, 0.6);
+  --legacycopilot-greendark: rgba(0, 22, 14, 1);
+  --legacycopilot-greenlight: rgba(227, 255, 238, 1);
+  --legacycopilot-greenmid-dark: rgba(0, 63, 39, 1);
+  --legacycopilot-greenmid-light: rgba(125, 218, 160, 1);
+  --legacycopilot-greenprimary: rgba(9, 170, 108, 1);
+  --legacydropzone-overlay: rgba(255, 255, 255, 0.95);
+  --legacyfontblack-headings: rgba(33, 43, 54, 1);
+  --legacyfontblack-small: rgba(60, 65, 73, 1);
+  --legacyfontgray-small: rgba(107, 111, 118, 1);
+  --legacyfontlight-gray: rgba(144, 149, 157, 1);
+  --legacyhoverbackground: rgba(248, 249, 251, 1);
+  --legacyhoverborder: rgba(201, 203, 205, 1);
+  --legacyhovernon-border-bgs: rgba(241, 243, 248, 1);
+  --legacyhoverpure-black: rgba(0, 0, 0, 1);
+  --legacyhovertable-items: rgba(238, 240, 243, 1);
+  --legacynon-hoverblack-border: rgba(61, 63, 69, 1);
+  --legacynon-hoverborder: rgba(223, 225, 228, 1);
+  --legacynon-hoverdividers-and-card-borders: rgba(239, 241, 244, 1);
+  --legacyportalgreen: rgba(30, 154, 80, 1);
+  --legacyportalred: rgba(204, 0, 0, 1);
+  --legacyportalreddark: rgba(174, 0, 0, 1);
+  --legacyportalweblink: rgba(17, 100, 163, 1);
+  --legacyportalwhite: rgba(255, 255, 255, 1);
+  --legacyportalyellow: rgba(255, 165, 0, 1);
+  --legacyprimarydark: rgba(76, 68, 221, 1);
+  --legacyprimarylight: rgba(94, 87, 227, 0.12);
+  --legacyprimarymiddark: rgba(84, 77, 217, 1);
+  --legacyprimaryprimary: rgba(94, 87, 227, 1);
+  --legacyscrollbar: rgba(0, 0, 0, 0.12);
+  --legacytinted-glass-border: rgba(0, 0, 0, 0.1);
+  --migration-border: rgba(237, 237, 240, 1);
+  --migration-dark-font: rgba(14, 14, 16, 1);
+  --migration-gray-font: rgba(96, 96, 106, 1);
+  --migration-hover: rgba(248, 249, 251, 1);
+  --migration-white: rgba(255, 255, 255, 1);
+  --modal-shadow: 0px 16px 70px 0px rgba(0, 0, 0, 0.5);
+  --new-10-bold-font-family: "Inter-Bold", Helvetica;
+  --new-10-bold-font-size: 10px;
+  --new-10-bold-font-style: normal;
+  --new-10-bold-font-weight: 700;
+  --new-10-bold-letter-spacing: 0px;
+  --new-10-bold-line-height: normal;
+  --new-10-medium-font-family: "Inter-Medium", Helvetica;
+  --new-10-medium-font-size: 10px;
+  --new-10-medium-font-style: normal;
+  --new-10-medium-font-weight: 500;
+  --new-10-medium-letter-spacing: 0px;
+  --new-10-medium-line-height: normal;
+  --new-10-regular-font-family: "Inter-Regular", Helvetica;
+  --new-10-regular-font-size: 10px;
+  --new-10-regular-font-style: normal;
+  --new-10-regular-font-weight: 400;
+  --new-10-regular-letter-spacing: 0px;
+  --new-10-regular-line-height: normal;
+  --new-12-medium-font-family: "Inter-Medium", Helvetica;
+  --new-12-medium-font-size: 12px;
+  --new-12-medium-font-style: normal;
+  --new-12-medium-font-weight: 500;
+  --new-12-medium-letter-spacing: 0px;
+  --new-12-medium-line-height: 16px;
+  --new-12-regular-font-family: "Inter-Regular", Helvetica;
+  --new-12-regular-font-size: 12px;
+  --new-12-regular-font-style: normal;
+  --new-12-regular-font-weight: 400;
+  --new-12-regular-letter-spacing: 0px;
+  --new-12-regular-line-height: 16px;
+  --new-13-medium-font-family: "Inter-Medium", Helvetica;
+  --new-13-medium-font-size: 13px;
+  --new-13-medium-font-style: normal;
+  --new-13-medium-font-weight: 500;
+  --new-13-medium-letter-spacing: 0px;
+  --new-13-medium-line-height: 129.99999523162842%;
+  --new-13-regular-font-family: "Inter-Regular", Helvetica;
+  --new-13-regular-font-size: 13px;
+  --new-13-regular-font-style: normal;
+  --new-13-regular-font-weight: 400;
+  --new-13-regular-letter-spacing: 0px;
+  --new-13-regular-line-height: 129.99999523162842%;
+  --new-14-medium-font-family: "Inter-Medium", Helvetica;
+  --new-14-medium-font-size: 14px;
+  --new-14-medium-font-style: normal;
+  --new-14-medium-font-weight: 500;
+  --new-14-medium-letter-spacing: 0px;
+  --new-14-medium-line-height: 18px;
+  --new-14-regular-font-family: "Inter-Regular", Helvetica;
+  --new-14-regular-font-size: 14px;
+  --new-14-regular-font-style: normal;
+  --new-14-regular-font-weight: 400;
+  --new-14-regular-letter-spacing: 0px;
+  --new-14-regular-line-height: 18px;
+  --new-15-medium-font-family: "Inter-Medium", Helvetica;
+  --new-15-medium-font-size: 15px;
+  --new-15-medium-font-style: normal;
+  --new-15-medium-font-weight: 500;
+  --new-15-medium-letter-spacing: 0px;
+  --new-15-medium-line-height: 24px;
+  --new-15-regular-font-family: "Inter-Regular", Helvetica;
+  --new-15-regular-font-size: 15px;
+  --new-15-regular-font-style: normal;
+  --new-15-regular-font-weight: 400;
+  --new-15-regular-letter-spacing: 0px;
+  --new-15-regular-line-height: 24px;
+  --new-15-semibold-font-family: "Inter-SemiBold", Helvetica;
+  --new-15-semibold-font-size: 15px;
+  --new-15-semibold-font-style: normal;
+  --new-15-semibold-font-weight: 600;
+  --new-15-semibold-letter-spacing: 0px;
+  --new-15-semibold-line-height: 24px;
+  --new-17-medium-font-family: "Inter-Medium", Helvetica;
+  --new-17-medium-font-size: 17px;
+  --new-17-medium-font-style: normal;
+  --new-17-medium-font-weight: 500;
+  --new-17-medium-letter-spacing: 0px;
+  --new-17-medium-line-height: 24px;
+  --new-18-medium-font-family: "Inter-Medium", Helvetica;
+  --new-18-medium-font-size: 18px;
+  --new-18-medium-font-style: normal;
+  --new-18-medium-font-weight: 500;
+  --new-18-medium-letter-spacing: 0px;
+  --new-18-medium-line-height: 136.00000143051147%;
+  --new-18-regular-font-family: "Inter-Regular", Helvetica;
+  --new-18-regular-font-size: 18px;
+  --new-18-regular-font-style: normal;
+  --new-18-regular-font-weight: 400;
+  --new-18-regular-letter-spacing: 0px;
+  --new-18-regular-line-height: normal;
+  --new-24-medium-font-family: "Inter-Medium", Helvetica;
+  --new-24-medium-font-size: 24px;
+  --new-24-medium-font-style: normal;
+  --new-24-medium-font-weight: 500;
+  --new-24-medium-letter-spacing: 0px;
+  --new-24-medium-line-height: 30px;
+  --new-24-semibold-font-family: "Inter-SemiBold", Helvetica;
+  --new-24-semibold-font-size: 24px;
+  --new-24-semibold-font-style: normal;
+  --new-24-semibold-font-weight: 600;
+  --new-24-semibold-letter-spacing: 0px;
+  --new-24-semibold-line-height: 30px;
+  --new-36-medium-font-family: "Inter-Bold", Helvetica;
+  --new-36-medium-font-size: 36px;
+  --new-36-medium-font-style: normal;
+  --new-36-medium-font-weight: 700;
+  --new-36-medium-letter-spacing: 0px;
+  --new-36-medium-line-height: normal;
+  --new-9-bold-font-family: "Inter-Bold", Helvetica;
+  --new-9-bold-font-size: 9px;
+  --new-9-bold-font-style: normal;
+  --new-9-bold-font-weight: 700;
+  --new-9-bold-letter-spacing: 0px;
+  --new-9-bold-line-height: normal;
+  --new-9-medium-font-family: "Inter-Medium", Helvetica;
+  --new-9-medium-font-size: 9px;
+  --new-9-medium-font-style: normal;
+  --new-9-medium-font-weight: 500;
+  --new-9-medium-letter-spacing: 0px;
+  --new-9-medium-line-height: 12px;
+  --new-9-regular-font-family: "Inter-Regular", Helvetica;
+  --new-9-regular-font-size: 9px;
+  --new-9-regular-font-style: normal;
+  --new-9-regular-font-weight: 400;
+  --new-9-regular-letter-spacing: 0px;
+  --new-9-regular-line-height: 12px;
+  --newcommonlight-gray: rgba(248, 249, 251, 1);
+  --newcommonwhite: rgba(255, 255, 255, 1);
+  --newfontdark: rgba(14, 14, 16, 1);
+  --newfontdark-gray: rgba(49, 49, 55, 1);
+  --newfontgray: rgba(96, 96, 106, 1);
+  --newfontlight-gray: rgba(232, 235, 241, 1);
+  --newfontmid-gray: rgba(140, 140, 153, 1);
+  --newgreendark: rgba(0, 22, 14, 1);
+  --newgreenlight: rgba(227, 255, 238, 1);
+  --newgreenmid-dark: rgba(0, 63, 39, 1);
+  --newgreenmid-light: rgba(125, 218, 160, 1);
+  --newgreenprimary: rgba(9, 170, 108, 1);
+  --newotherbackdrop: rgba(0, 0, 0, 0.3);
+  --newothercard-border: rgba(237, 237, 240, 1);
+  --newotherhover: rgba(248, 249, 251, 1);
+  --newothernormal: rgba(215, 215, 221, 1);
+  --newpurpledark: rgba(1, 1, 29, 1);
+  --newpurplelight: rgba(234, 233, 244, 1);
+  --newpurplemid-dark: rgba(61, 63, 190, 1);
+  --newpurpleprimary: rgba(94, 87, 227, 1);
+  --otherdisable: rgba(160, 160, 166, 1);
+  --regular-card-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.07);
+  --small-card-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
+  --spacing-p-space-1000: 40px;
+  --spacing-p-space-600: 24px;
+}
+
+/*
+
+To enable a theme in your HTML, simply add one of the following data attributes to an HTML element, like so:
+
+<body data-migration-mode="revamped">
+    <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-migration-mode="revamped"] {
+  --migration-border: rgba(237, 237, 240, 1);
+  --migration-dark-font: rgba(14, 14, 16, 1);
+  --migration-gray-font: rgba(96, 96, 106, 1);
+}
+
+.text-migration-gray-font {
+  color: var(--Gray-Font, #6B6F76);
+}
+
+[data-migration-mode="legacy"] {
+  --migration-border: rgba(223, 225, 228, 1);
+  --migration-dark-font: rgba(33, 43, 54, 1);
+  --migration-gray-font: rgba(107, 111, 118, 1);
 }
