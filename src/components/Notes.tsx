@@ -32,7 +32,7 @@ export function Notes(props: Props) {
                   }}
                   key={`${index}-${noteId}`}
                 >
-                  <NotePage noteId={noteId} isHidden={isHidden} />
+                  <NotePage noteId={noteId} isHidden={isHidden} noteIds={actualNotes.map((nid) => nid)}/>
                 </div>
               );
             })}

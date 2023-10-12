@@ -5,12 +5,31 @@ import { valueParser } from "./Sidebar";
 interface Props {
   noteId: string;
   isHidden: boolean;
+  noteIds: string[];
 }
 
 export function NotePage(props: Props) {
-  const { noteId, isHidden } = props;
+  const { noteId, isHidden, noteIds } = props;
   const store = JSON.parse(localStorage.getItem("notes") || "{}");
   const note = store[noteId];
+
+  const path = window.location.host
+  const replaceIDs = () => {
+    let newHref: string = `http://${path}?`
+    const goodIDs: string[] = []
+    var found = false
+    noteIds.forEach((id) => {
+      if (found) {
+        return
+      }
+      if (id === props.noteId) {
+        found = true
+      }
+      newHref = newHref.concat(`&noteId=${id}`)
+      goodIDs.push(id)
+    })
+    window.location.href = newHref
+  }
 
   return (
     <div>
@@ -23,6 +42,7 @@ export function NotePage(props: Props) {
               writingMode: "vertical-rl",
               display: "flex",
             }}
+            onClick={replaceIDs}
           >
             {note.title}
           </h1>
