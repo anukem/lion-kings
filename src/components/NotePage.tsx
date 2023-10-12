@@ -14,7 +14,7 @@ export function NotePage(props: Props) {
   return (
     <div>
       <h1>{note.title}</h1>
-      <p>{valueParser(note.content)}</p>
+      <p style={{width: "600px"}}>{valueParser(note.content)}</p>
     </div>
   );
 }
