@@ -99,9 +99,6 @@ export default async function Page({
                   marginLeft: "200px",
                 }}
               >
-                {typeof selectedUserId === "string" && (
-                  <Editor clientId={selectedUserId} />
-                )}
               </div>
               <div
                 style={{
@@ -156,6 +153,10 @@ export const Frame = (props: FrameProps): JSX.Element => {
         </div>
         {/** Show note content */}
         {selectedNote && <NotePage noteId={selectedNote} />}
+
+        {typeof selectedUserId === "string" && (
+          <Editor clientId={selectedUserId} />
+        )}
       </div>
     </div>
   );

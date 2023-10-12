@@ -37,23 +37,23 @@ export function Editor(props: Props) {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [title, setTitle] = useState("");
   return (
-    <div>
-      Title
+    <div className="py-20 px-20">
       <input
-        style={{ marginLeft: "10px", marginBottom: "40px" }}
+        className="note-page-title outline-none "
+        style={{ marginBottom: "40px" }}
+        placeholder="Untitiled note"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />{" "}
-      <div>Content</div>
       <MentionsInput
+        className="outline-none"
+        placeholder="Start typing..."
         value={text}
         onChange={(e) => setText(e.target.value)}
         style={{
+          outline: "none",
           display: "block",
           height: "300px",
-          width: "400px",
-          outline: "none",
-          background: "white",
         }}
       >
         <Mention
@@ -67,11 +67,14 @@ export function Editor(props: Props) {
           )}
         />
       </MentionsInput>
-      <button
-        style={{ display: "block" }}
+      <div
+        className="button-new"
         onClick={() => {
           const currentValue = localStorage.getItem(clientId);
 
+          if (title == "") {
+            return;
+          }
           // Create a new Date object to get the current date and time
           const currentDate = new Date();
 
@@ -108,8 +111,21 @@ export function Editor(props: Props) {
           location.reload();
         }}
       >
-        Add note
-      </button>
+        <svg
+          className="cursor-pointer"
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+          <path
+            d="M10.65 6.00009C10.65 6.24849 10.4484 6.45009 10.2 6.45009H6.44999V10.2001C6.44999 10.4485 6.24839 10.6501 5.99999 10.6501C5.75159 10.6501 5.54999 10.4485 5.54999 10.2001V6.45009H1.8C1.5516 6.45009 1.35 6.24849 1.35 6.00009C1.35 5.75169 1.5516 5.55009 1.8 5.55009H5.54999V1.8001C5.54999 1.5517 5.75159 1.3501 5.99999 1.3501C6.24839 1.3501 6.44999 1.5517 6.44999 1.8001V5.55009H10.2C10.4484 5.55009 10.65 5.75169 10.65 6.00009Z"
+            fill="white"
+          />
+        </svg>
+        <div className="button-text cursor-pointer">Add note</div>
+      </div>
     </div>
   );
 }

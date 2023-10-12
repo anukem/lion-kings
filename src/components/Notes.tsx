@@ -10,12 +10,23 @@ export function Notes(props: Props) {
   return (
     <div>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-          <div style={{ display: "flex", flexDirection: "row", maxWidth: "100%", height: "80%"}}>
+        <div className="z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              maxWidth: "100%",
+              height: "80%",
+            }}
+          >
             {actualNotes.map((noteId, index) => {
-              var isHidden = (index < actualNotes.length - 2 && actualNotes.length > 2)
-              var marginBottomVal = isHidden || (index === 0 && actualNotes.length > 2) ? `-540px` : "10px"
-              var marginRightVal = "0px"
+              var isHidden =
+                index < actualNotes.length - 2 && actualNotes.length > 2;
+              var marginBottomVal =
+                isHidden || (index === 0 && actualNotes.length > 2)
+                  ? `-540px`
+                  : "10px";
+              var marginRightVal = "0px";
               return (
                 <div
                   style={{

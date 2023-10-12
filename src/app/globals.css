@@ -16,6 +16,41 @@
   }
 }
 
+.outline-none__input {
+  outline: none;
+}
+
+.button-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  position: relative;
+  background-color: var(--newfontdark);
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: var(--newfontdark-gray);
+}
+
+.button-new .icons {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+
+.button-new .button-text {
+  position: relative;
+  width: fit-content;
+  font-family: var(--new-13-medium-font-family);
+  font-weight: var(--new-13-medium-font-weight);
+  color: var(--newcommonwhite);
+  font-size: var(--new-13-medium-font-size);
+  letter-spacing: var(--new-13-medium-letter-spacing);
+  line-height: var(--new-13-medium-line-height);
+  white-space: nowrap;
+  font-style: var(--new-13-medium-font-style);
+}
+
 .note-page-content {
 
   color: var(--Dark-Font, #212B36);
