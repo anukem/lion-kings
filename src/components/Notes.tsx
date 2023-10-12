@@ -9,7 +9,7 @@ export function Notes(props: Props) {
   const actualNotes = noteIds.slice(-5);
   return (
     <div>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <main className="flex min-h-screen flex-col justify-between p-24">
         <div className="z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
           <div
             style={{
@@ -33,7 +33,7 @@ export function Notes(props: Props) {
                     padding: "10px",
                     height: "800px",
                     width: "600px",
-                    background: "beige",
+                    background: "#fafafa",
                     marginBottom: marginBottomVal,
                     marginRight: marginRightVal,
                     zIndex: index + 1,
@@ -43,7 +43,11 @@ export function Notes(props: Props) {
                   }}
                   key={`${index}-${noteId}`}
                 >
-                  <NotePage noteId={noteId} isHidden={isHidden} noteIds={actualNotes.map((nid) => nid)}/>
+                  <NotePage
+                    noteId={noteId}
+                    isHidden={isHidden}
+                    noteIds={actualNotes.map((nid) => nid)}
+                  />
                 </div>
               );
             })}

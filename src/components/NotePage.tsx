@@ -6,30 +6,31 @@ interface Props {
   noteId: string;
   isHidden: boolean;
   noteIds: string[];
+  isHomePage?: boolean;
 }
 
 export function NotePage(props: Props) {
-  const { noteId, isHidden, noteIds } = props;
+  const { isHomePage, noteId, isHidden, noteIds } = props;
   const store = JSON.parse(localStorage.getItem("notes") || "{}");
   const note = store[noteId];
 
-  const path = window.location.host
+  const path = window.location.host;
   const replaceIDs = () => {
-    let newHref: string = `http://${path}?`
-    const goodIDs: string[] = []
-    var found = false
+    let newHref: string = `http://${path}?`;
+    const goodIDs: string[] = [];
+    var found = false;
     noteIds.forEach((id) => {
       if (found) {
-        return
+        return;
       }
       if (id === props.noteId) {
-        found = true
+        found = true;
       }
-      newHref = newHref.concat(`&noteId=${id}`)
-      goodIDs.push(id)
-    })
-    window.location.href = newHref
-  }
+      newHref = newHref.concat(`&noteId=${id}`);
+      goodIDs.push(id);
+    });
+    window.location.href = newHref;
+  };
 
   return (
     <div>
@@ -50,7 +51,10 @@ export function NotePage(props: Props) {
           <div>
             <div className="px-20 py-20">
               <div className="note-page-title">{note.title}</div>
-              <p className="py-12 note-page-content" style={{ width: "600px" }}>
+              <p
+                className="py-12 note-page-content"
+                style={{ width: isHomePage ? "100%" : "450px" }}
+              >
                 {valueParser(note.content)}
               </p>
             </div>

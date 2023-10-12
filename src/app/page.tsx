@@ -80,40 +80,6 @@ export default async function Page({
             selectedNote={selectedNote}
             selectedUserId={selectedUserId}
           />
-
-          {/* <div>
-          {typeof selectedNote === "string" ? (
-            <NotePage noteId={selectedNote}></NotePage>
-          ) : (
-            <>
-              <div style={{ display: "inline-block" }}>
-                <Clients
-                  selectedUserId={selectedUserId?.toString()}
-                  clients={clients}
-                />
-              </div>
-
-              <div
-                style={{
-                  display: "inline-block",
-                  marginLeft: "200px",
-                }}
-              >
-              </div>
-              <div
-                style={{
-                  marginTop: "300px",
-                  display: "inline-block",
-                  marginLeft: "200px",
-                }}
-              >
-                {typeof selectedUserId === "string" && (
-                  <Sidebar selectedUserId={selectedUserId} />
-                )}
-              </div>
-            </>
-          )}
-        </div> */}
         </div>
       </main>
     </div>
@@ -152,7 +118,7 @@ export const Frame = (props: FrameProps): JSX.Element => {
           </div>
         </div>
         {/** Show note content */}
-        {selectedNote && <NotePage noteId={selectedNote} />}
+        {selectedNote && <NotePage isHomePage={true} noteId={selectedNote} />}
 
         {typeof selectedUserId === "string" && (
           <Editor clientId={selectedUserId} />
